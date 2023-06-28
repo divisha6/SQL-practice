@@ -1,7 +1,16 @@
+-- EXISTS clause
+SELECT first_name , last_name FROM customer AS c
+WHERE EXISTS(
+	SELECT customer_id, amount
+		FROM payment AS p
+		WHERE p.customer_id  = c.customer_id AND amount > 30
+);
+
+
 -- JOIN operation using SUB QUERY
-SELECT customer_id, amount, payment_mode
-FROM payment
-WHERE customer_id IN (SELECT customer_id FROM customer);
+-- SELECT customer_id, amount, payment_mode
+-- FROM payment
+-- WHERE customer_id IN (SELECT customer_id FROM customer);
 
 
 -- SUB QUERY example
@@ -36,7 +45,7 @@ WHERE customer_id IN (SELECT customer_id FROM customer);
 
 -- select round(avg(amount),2) from payment
 
--- select * from customer
+select * from payment
 -- copy payment(customer_id,	amount,	payment_mode,	payment_date)
 -- FROM 'C:\Program Files\PostgreSQL\15\data\payment.csv'
 -- DELIMITER ','
