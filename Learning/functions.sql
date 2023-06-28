@@ -1,6 +1,36 @@
-select round(avg(amount),2) from payment
+-- select * 
+-- from payment
+-- where amount > (select avg(amount) from payment)
+-- here the filtering of customers is done
+-- SUB QUERY example
 
--- select * from payment
+-- select avg(amount) from payment
+-- for finding average ; now filtering customers on this ^^
+
+
+-- SELECT *
+-- FROM customer AS c
+-- FULL OUTER JOIN payment AS p
+-- ON c.customer_id = p.customer_id;
+
+-- select extract(dow from payment_date), payment_date as payment_month
+-- from payment
+
+-- SHOW TIMEZONE
+-- SELECT NOW()
+-- SELECT TIMEOFDAY()
+-- SELECT CURRENT_TIME
+-- SELECT CURRENT_DATE
+
+-- select payment_mode, COUNT(amount) As Total
+-- from payment
+-- group by payment_mode
+-- having COUNT(amount)>=3
+-- ORDER BY total DESC
+
+-- select round(avg(amount),2) from payment
+
+-- select * from customer
 -- copy payment(customer_id,	amount,	payment_mode,	payment_date)
 -- FROM 'C:\Program Files\PostgreSQL\15\data\payment.csv'
 -- DELIMITER ','
