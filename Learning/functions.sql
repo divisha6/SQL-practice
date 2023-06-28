@@ -1,8 +1,14 @@
+-- JOIN operation using SUB QUERY
+SELECT customer_id, amount, payment_mode
+FROM payment
+WHERE customer_id IN (SELECT customer_id FROM customer);
+
+
+-- SUB QUERY example
 -- select * 
 -- from payment
 -- where amount > (select avg(amount) from payment)
 -- here the filtering of customers is done
--- SUB QUERY example
 
 -- select avg(amount) from payment
 -- for finding average ; now filtering customers on this ^^
